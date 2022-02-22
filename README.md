@@ -8,6 +8,11 @@ This is a heavily modified version of the single player game [Snek](https://gith
 
 This project was created and published by me as part of my learnings at Lighthouse Labs.
 
+Before you can run this client, you will need to be running the server side which you can download and install from here. 
+
+## Final Product
+<img width="698" alt="Screen Shot 2022-02-22 at 7 46 55 PM" src="https://user-images.githubusercontent.com/93479462/155239110-d2eff393-b77c-42fe-95d7-dc179d2fcd6b.png">
+
 ## Instructions
 - Run the snake client using  `node play.js` with a command line arg of your initials 
 - Use WASD keys to move the snake up, left ,down, or right
