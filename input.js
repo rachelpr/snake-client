@@ -1,7 +1,10 @@
 const net = require("net");
 
+let connection;
+
 //A function to allow for input handling
-const setupInput = function () {
+const setupInput = function (conn) {
+  connection = conn;
   const stdin = process.stdin;
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
@@ -10,11 +13,24 @@ const setupInput = function () {
   return stdin;
 };
 
-//This allows the user to exist the game with ctrl-c
+//This allows the user to exit the game with ctrl-c
 const handleUserInput = function (key) {
   if (key === "\u0003") {
     process.exit();
   }
+  if (key === "w") {
+    connection.write("Move: up");
+  }
+  if (key === "a") {
+    connection.write("Move: left");
+  }
+  if (key === "s") {
+    connection.write("Move: down");
+  }
+  if (key === "d") {
+    connection.write("Move: right");
+  }
 };
+
 
 module.exports = { setupInput }
