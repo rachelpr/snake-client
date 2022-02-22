@@ -1,8 +1,9 @@
+//A file to handle user input to the game
 const net = require("net");
+const { MOVE_UP_KEY, MOVE_RIGHT_KEY, MOVE_DOWN_KEY, MOVE_LEFT_KEY, messages } = require("./constants")
 
 let connection;
 
-//A function to allow for input handling
 const setupInput = function (conn) {
   connection = conn;
   const stdin = process.stdin;
@@ -13,37 +14,25 @@ const setupInput = function (conn) {
   return stdin;
 };
 
-//This allows the user to exit the game with ctrl-c
 const handleUserInput = function (key) {
   if (key === "\u0003") {
     process.exit();
   }
-  if (key === "w") {
+  if (key === MOVE_UP_KEY) {
     connection.write("Move: up");
   }
-  if (key === "a") {
+  if (key === MOVE_LEFT_KEY) {
     connection.write("Move: left");
   }
-  if (key === "s") {
+  if (key === MOVE_DOWN_KEY) {
     connection.write("Move: down");
   }
-  if (key === "d") {
+  if (key === MOVE_RIGHT_KEY) {
     connection.write("Move: right");
   }
-
-  if (key === "r") {
-    connection.write("Say: Race ya!")
-  }
-  if (key === "t") {
-    connection.write("Say: Yummmm")
-  }
-  if (key === "e") {
-    connection.write("Say: Weeeee")
-  }
-  if (key === "f") {
-    connection.write("Say: SssssS")
+  if (messages[key]) {
+    connection.write(messages[key])
   }
 };
-
 
 module.exports = { setupInput }
