@@ -13,13 +13,13 @@ const connect = function () {
   conn.on("connect", () => {
     console.log("You've successfully connected")
     conn.write("Name: RPR")
+  });
 
-  })
   conn.on("data", (data) => {
     console.log(data)
   });
 
-  return conn
+  return conn;
 };
 
 module.exports = { connect };
