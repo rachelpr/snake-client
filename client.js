@@ -1,18 +1,19 @@
+//A file to hold initial config info and connect function
 const net = require("net");
+const { IP, PORT } = require("./constants")
 
-// establishes a connection with the game server
 const connect = function () {
+  const name = process.argv.slice(2)
   const conn = net.createConnection({
-    host: "localhost",
-    port: 50541
+    host: IP,
+    port: PORT
   });
 
-  // interpret incoming data as text
   conn.setEncoding("utf8");
 
   conn.on("connect", () => {
     console.log("You've successfully connected")
-    conn.write("Name: RPR")
+    conn.write(`Name: ${name}`)
   });
 
   conn.on("data", (data) => {
