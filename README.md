@@ -12,5 +12,6 @@ This project was created and published by me as part of my learnings at Lighthou
 - Run the snake client using  `node play.js` with a command line arg of your initials 
 - Use WASD keys to move the snake up, left ,down, or right
 - Goal is to get your snake to eat as many red dots as possible
+- Use keys "e" "r" "t" or "f" to send pre-canned messages
 - The game is over when you crash into a wall, or into your own tail
 - The game can be exited by using the `ctrl - c` keyboard shortcut
